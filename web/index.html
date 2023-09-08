@@ -7,6 +7,10 @@
   <style>
     @media (min-width:768px) {
       main {
+        max-width: 1440px;
+        margin: 0 2rem;
+      }
+      section {
         display: grid;
         grid-auto-rows: 1fr;
         grid-template-columns: 1fr 1fr 1fr;
@@ -27,6 +31,12 @@
       width: 320px;
       max-width: 100%;
     }
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
   </style>
   <script type="module">
     fetch('http://localhost:1234/movies')
@@ -40,7 +50,7 @@
             <button>Delete</button>
           </article>
         `).join('');
-        document.querySelector('main').innerHTML = html
+        document.querySelector('section').innerHTML = html
         document.addEventListener("click", e => {
           if (e.target.matches('button')) {
             const article = e.target.closest('article')
@@ -57,10 +67,20 @@
           }
         })
       })
+      .catch(err => {
+        const html = `<h2>${err.message}</h2>
+          <p>Check that the API is started with the command:</p>
+          <code>npm run start</code>
+        `
+        document.querySelector('main').innerHTML = html
+        console.error(err)
+      })
   </script>
 </head>
 <body>
   <h1>Movies API</h1>
-  <main></main>
+  <main>
+    <section></section>
+  </main>
 </body>
 </html>

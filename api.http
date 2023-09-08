@@ -5,7 +5,13 @@ GET http://localhost:1234/movies
 GET http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 
 ### Recupera movies por un genero
-GET http://localhost:1234/movies?genre=ACTION
+GET http://localhost:1234/movies?genre=FANTASY
+
+### Recupera movies por un director
+GET http://localhost:1234/movies?director=JAMES%20CAMERON
+
+### Recupera movies por un director y genero
+GET http://localhost:1234/movies?genre=ACTION&director=JAMES%20CAMERON
 
 ### Crear una nueva película
 POST http://localhost:1234/movies
@@ -25,10 +31,14 @@ Content-Type: application/json
 }
 
 ### Actualizar una película por id
-PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+PATCH http://localhost:1234/movies/fc793fcb-61a5-4b38-b5ca-fac05cd591c5
 Content-Type: application/json
 
 {
   "title": "The Godfather 2",
   "year": 2000
 }
+
+### Borrar una película por id
+DELETE http://localhost:1234/movies/fc793fcb-61a5-4b38-b5ca-fac05cd591c5
+Content-Type: application/json
