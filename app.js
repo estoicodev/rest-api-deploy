@@ -11,7 +11,7 @@ app.use(corsMiddleware())
 app.use('/movies', moviesRouter)
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Hello World' })
+  res.json({ message: 'Go to /movies' })
 })
 
 const PORT = process.env.PORT ?? 1234
